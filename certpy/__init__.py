@@ -63,7 +63,7 @@ class CertificateAuthority:
         )
         cert.set_issuer(subject)
         cert.set_pubkey(self.key)
-        cert.sign(self.key, self.master.digest_type)
+        cert.sign(self.key, self.master.hash_type)
         cert_bytes = crypto.dump_certificate(self.master.certificate_format, cert)
         key_bytes = crypto.dump_privatekey(self.master.certificate_format, self.key)
         return cert_bytes, key_bytes
@@ -172,7 +172,7 @@ class SelfSignedCertificate:
 
         self.cert.set_issuer(self.ca.get_subject())
         self.cert.set_pubkey(self.key)
-        self.cert.sign(self.ca_key, self.master.digest_type)
+        self.cert.sign(self.ca_key, self.master.hash_type)
         cert_bytes = crypto.dump_certificate(self.master.certificate_format, self.cert)
         key_bytes = crypto.dump_privatekey(self.master.certificate_format, self.key)
         return cert_bytes, key_bytes
@@ -186,15 +186,15 @@ class CertPy:
         self.ca_key = ca_key
         self.distinguished_name = {}
         self.certificate_age = {"days": 365}
-        self.digest_type = "sha256"
+        self.hash_type = "sha256"
         self.certificate_format = crypto.FILETYPE_PEM
         self.san = {}
 
     def set_certificate_age(self, **kwargs):
         self.certificate_age.update(kwargs)
 
-    def set_digest_type(self, digest_type: str = "sha256"):
-        self.digest_type = digest_type
+    def set_hash_type(self, hash_type: str = "sha256"):
+        self.hash_type = hash_type
 
     def set_certificate_format(self, certificate_format: int = crypto.FILETYPE_PEM):
         self.certificate_format = certificate_format

@@ -117,11 +117,11 @@ def create_cert(name: List[str] = Option([], help="Certificate name in workflow 
 
         cert_dn = cert_obj["distinguished_name"]
         cert_age = cert_obj["age"]
-        cert_digest = cert_obj["digest"]
+        cert_hash = cert_obj["hash"]
         cp = CertPy()
         cp.set_distinguished_name(**cert_dn)
         cp.set_certificate_age(**cert_age)
-        cp.set_digest_type(cert_digest)
+        cp.set_hash_type(cert_hash)
         ca = cp.create_certificate_authority()
         ca_bytes, key_bytes = ca.dumps()
         with open(ca_file, "wb") as fp:
@@ -196,13 +196,13 @@ def create_cert(name: List[str] = Option([], help="Certificate name in workflow 
 
         cert_dn = cert_obj["distinguished_name"]
         cert_age = cert_obj["age"]
-        cert_digest = cert_obj["digest"]
+        cert_hash = cert_obj["hash"]
         cp = CertPy(ca=ca_file, ca_key=ca_keyfile)
         cp.set_san(ip_address, dns)
         cp.load_certificate_authority()
         cp.set_distinguished_name(**cert_dn)
         cp.set_certificate_age(**cert_age)
-        cp.set_digest_type(cert_digest)
+        cp.set_hash_type(cert_hash)
         self_signed_cert = cp.create_self_signed_certificate()
         self_signed_cert.set_certificate_type(cert_type=cert_type)
         cert_bytes, key_bytes = self_signed_cert.dumps()
