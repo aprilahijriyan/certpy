@@ -12,7 +12,7 @@ With `pip`:
 pip install certpy
 ```
 
-Install from source:
+Install from source (you need to install [python-pdm](https://pdm.fming.dev/latest/) first):
 
 ```
 git clone https://github.com/aprilahijriyan/certpy.git
