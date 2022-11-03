@@ -14,7 +14,6 @@ certificates:
       emailAddress: null
     age: *age
     hash: sha256
-    overwrite: true
 
   server:
     type: server
@@ -28,7 +27,6 @@ certificates:
         - 192.168.18.203
       dns:
         - ca.example.com
-    overwrite: true
 
   client:
     type: client
@@ -37,4 +35,3 @@ certificates:
     ca_file: kuli
     age: *age
     hash: sha256
-    overwrite: true
