@@ -1,6 +1,6 @@
 [project]
 name = "certpy"
-version = "0.1.0"
+version = "0.1.1"
 description = "Self-signed SSL certificate generator"
 authors = [
     {name = "aprilahijriyan", email = "hijriyan23@gmail.com"},
