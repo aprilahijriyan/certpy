@@ -76,7 +76,7 @@ Then, create a CertPy environment (this is to hold all certificates created by C
 
 ```sh
 # this will create a `~/.certpy` directory and create a default `Root CA` certificate stored in `~/.certpy/ca/certs/rootCA.pem`.
-certpy init
+certpy ca init
 ```
 
 Now you can create your own certificate from the workflow file!
