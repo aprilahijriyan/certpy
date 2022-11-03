@@ -45,7 +45,7 @@ certificates:
       commonName: Kuli Dev Root CA
       emailAddress: null
     age: *age
-    digest: sha256
+    hash: sha256
     overwrite: true
 
   server:
@@ -54,7 +54,7 @@ certificates:
       commonName: Server
     ca_file: kuli
     age: *age
-    digest: sha256
+    hash: sha256
     san:
       ip:
         - 192.168.18.203
@@ -68,7 +68,7 @@ certificates:
       commonName: Client
     ca_file: kuli
     age: *age
-    digest: sha256
+    hash: sha256
     overwrite: true
 ```
 
