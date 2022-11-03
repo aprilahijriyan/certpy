@@ -113,6 +113,7 @@ def create_cert(name: List[str] = Option([], help="Certificate name in workflow 
             print(
                 f"Root CA {ca_name!r} already exists. Try using the 'overwrite' option to regenerate certificate."
             )
+            CA_PATHS[ca_name] = (ca_file, ca_keyfile)
             continue
 
         cert_dn = cert_obj["distinguished_name"]
