@@ -1,6 +1,6 @@
 # certpy
 
-Simple python package to create self-signed SSL certificate
+> Self-signed SSL certificate generator :closed_lock_with_key:
 
 This tool is an experiment to learn _"How to create a self-signed certificate"_.
 
