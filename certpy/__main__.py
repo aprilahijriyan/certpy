@@ -1,5 +1,5 @@
 import os
-from distutils.dir_util import remove_tree
+import shutil
 from ipaddress import AddressValueError, IPv4Address, IPv6Address
 from typing import Dict, List, Tuple
 
@@ -33,7 +33,7 @@ def ca_init(force: bool = Option(False, help="Re-init certpy directory")):
             "You will delete all Root CA and other certificates. Are you sure?",
             abort=True,
         )
-        remove_tree(BASE_DIR)
+        shutil.rmtree(BASE_DIR)
         print("Successfully delete all certificates")
         print("Re-initializing the certpy directory...")
     else:

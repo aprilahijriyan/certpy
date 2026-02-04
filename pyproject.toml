@@ -2,9 +2,7 @@
 name = "certpy"
 version = "0.1.1"
 description = "Self-signed SSL certificate generator"
-authors = [
-    {name = "aprilahijriyan", email = "hijriyan23@gmail.com"},
-]
+authors = [{ name = "aprilahijriyan", email = "hijriyan23@gmail.com" }]
 dependencies = [
     "pyOpenSSL>=22.1.0",
     "typer>=0.6.1",
@@ -13,7 +11,7 @@ dependencies = [
 ]
 requires-python = ">=3.7"
 readme = "README.md"
-license = {text = "MIT"}
+license = { text = "MIT" }
 
 [project.scripts]
 
@@ -22,14 +20,11 @@ certpy = "certpy.__main__:cli"
 [project.optional-dependencies]
 
 [build-system]
-requires = ["pdm-pep517>=1.0.0"]
-build-backend = "pdm.pep517.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
-[tool.pdm]
-[tool.pdm.dev-dependencies]
-dev = [
-    "ipython>=7.16.3",
-    "pre-commit>=2.9.2",
-]
+[dependency-groups]
+dev = ["ipython>=7.16.3", "pre-commit>=2.9.2"]
+
 [tool.isort]
 profile = "black"
